@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="เครื่องคำนวณภาษีมูลค่าเพิ่ม 7% ออนไลน์ คำนวณราคา รวม/ไม่รวม VAT ใช้ง่าย รองรับมือถือ">
+  <title>คำนวณ VAT 7% ออนไลน์ | Calcixo</title>
+  <link rel="alternate" hreflang="en" href="https://calcixo.com/en/vat-calculator">
+  <link rel="canonical" href="https://calcixo.com/th/vat-calculator">
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>เครื่องคำนวณ VAT 7%</h1>
+  <label for="price">กรอกราคาสินค้า (ไม่รวม VAT):</label>
+  <input type="number" id="price" placeholder="เช่น 1000">
+  <button onclick="calc()">คำนวณ</button>
+  <div id="result"></div>
+
+  <script>
+    function calc() {
+      const price = parseFloat(document.getElementById("price").value);
+      if (isNaN(price) || price <= 0) {
+        document.getElementById("result").innerText = "กรุณากรอกราคาที่ถูกต้อง";
+        return;
+      }
+      const vat = price * 0.07;
+      const total = price + vat;
+      document.getElementById("result").innerText = `VAT 7% = ${vat.toFixed(2)} บาท\nราคาหลัง VAT = ${total.toFixed(2)} บาท`;
+    }
+  </script>
+</body>
+</html>
